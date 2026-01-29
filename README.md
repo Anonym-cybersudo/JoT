@@ -20,7 +20,7 @@ pip install -e "lm-evaluation-harness[ifeval,math]"
 ### How to run 
 
 ```bash
-bash run scripts/eval_configs.sh
+bash scripts/eval_configs.sh
 ```
 
 You will get best model results for dream
