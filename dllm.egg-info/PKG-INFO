@@ -1,0 +1,42 @@
+Metadata-Version: 2.4
+Name: dllm
+Version: 0.1.0
+Summary: dLLM: Simple Diffusion Language Modeling
+Requires-Python: >=3.10
+Description-Content-Type: text/markdown
+License-File: LICENSE
+Requires-Dist: transformers==4.57.0
+Requires-Dist: accelerate==1.11.0
+Requires-Dist: deepspeed==0.18.0
+Requires-Dist: peft==0.17.1
+Requires-Dist: datasets==4.2.0
+Requires-Dist: sentencepiece==0.2.0
+Requires-Dist: torchmetrics
+Requires-Dist: tyro
+Requires-Dist: wandb
+Requires-Dist: omegaconf
+Requires-Dist: tqdm
+Requires-Dist: matplotlib
+Requires-Dist: pytest
+Requires-Dist: rich
+Provides-Extra: optional
+Requires-Dist: bitsandbytes==0.48.1; extra == "optional"
+Requires-Dist: vllm==0.8.5.post1; extra == "optional"
+Requires-Dist: flash-attn==2.8.3; extra == "optional"
+Provides-Extra: rl
+Requires-Dist: trl==0.26.0; extra == "rl"
+Requires-Dist: math_verify==0.8.0; extra == "rl"
+Dynamic: license-file
+
+conda create -n dllm python=3.10 -y
+conda activate dllm
+
+conda install cuda=12.4 -c nvidia
+pip install torch==2.6.0 torchvision==0.21.0 torchaudio==2.6.0 \
+    --index-url https://download.pytorch.org/whl/cu124
+
+pip install -e .
+
+git submodule update --init --recursive
+
+pip install -e "lm-evaluation-harness[ifeval,math]"
