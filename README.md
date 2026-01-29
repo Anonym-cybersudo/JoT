@@ -1,4 +1,4 @@
-# JoT
+# Just on Time
 
 ## Installation
 
